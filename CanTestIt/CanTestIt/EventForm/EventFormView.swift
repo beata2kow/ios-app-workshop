@@ -298,6 +298,8 @@ final class EventFormView: BaseView {
         premiumEventTitleLabel.text = model.premiumSwitchTitle
         
         saveButton.setTitle(model.saveButtonTitle, for: .normal)
+        saveButton.accessibilityIdentifier = ElementId.NewEvent.saveButton
+        //tutaj ID dla save button
         cancelButton.setTitle(model.cancelButtonTitle, for: .normal)
         deleteButton.setTitle(model.deleteButtonTitle, for: .normal)
         
@@ -439,6 +441,7 @@ final class EventFormView: BaseView {
             eventTtitleTextField.topAnchor.constraint(equalTo: eventTitleLabel.bottomAnchor, constant: Constants.smallSpacing),
             eventTtitleTextField.heightAnchor.constraint(equalToConstant: .defaultControlHeight)
         ])
+        eventTtitleTextField.accessibilityIdentifier = ElementId.NewEvent.addEventName
     }
     
     private func setUpCategoryTitleLabelConstraints() {
@@ -457,6 +460,7 @@ final class EventFormView: BaseView {
             categoryDropdownField.trailingAnchor.constraint(equalTo: formView.trailingAnchor, constant: -.defaultPadding),
             categoryDropdownField.topAnchor.constraint(equalTo: categoryTitleLabel.bottomAnchor, constant: Constants.smallSpacing)
         ])
+       // categoryDropdownField.accessibilityIdentifier = 
     }
     
     private func setUpStartDateTitleLabelConstraints() {
@@ -518,6 +522,7 @@ final class EventFormView: BaseView {
             priceTextField.topAnchor.constraint(equalTo: priceTitleLabel.bottomAnchor, constant: Constants.smallSpacing),
             priceTextField.heightAnchor.constraint(equalToConstant: .defaultControlHeight)
         ])
+        priceTextField.accessibilityIdentifier = ElementId.NewEvent.addPrice
     }
     
     private func setUpPremiumEventSwitchConstraints() {

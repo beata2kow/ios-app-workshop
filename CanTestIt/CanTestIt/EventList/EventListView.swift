@@ -104,6 +104,7 @@ final class EventListView: BaseView {
     private func fill(with model: Model) {
         welcomeLabel.text = model.welcomeText
         titleLabel.text = model.title
+        titleLabel.accessibilityIdentifier = ElementId.EventsList.findEventText //ID dla pola potrzebnego do testu, inaczej niz na Login screenie, bo ten kod jest pisany w inny sposob
         eventsButton.setTitle(model.eventsButtonTitle, for: .normal)
         searchField.placeholder = model.searchFieldPlaceholder
         searchField.placeholderColor(.placeholderColor)
@@ -193,8 +194,9 @@ final class EventListView: BaseView {
             addButton.topAnchor.constraint(equalTo: footerView.topAnchor, constant: Constants.spacing),
             addButton.bottomAnchor.constraint(equalTo: footerView.bottomAnchor, constant: -Constants.spacing),
             addButton.heightAnchor.constraint(equalToConstant: Constants.addButtonSize),
-            addButton.widthAnchor.constraint(equalToConstant: Constants.addButtonSize)
+            addButton.widthAnchor.constraint(equalToConstant: Constants.addButtonSize),
         ])
+        addButton.accessibilityIdentifier = ElementId.EventsList.addEventButton
     }
     
     private func setUpEventsButtonConstraints() {
